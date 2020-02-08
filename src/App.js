@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Ninjas from "./Ninjas";
-import AddNinja from "./AddNinja";
+import React, { Component } from "react"
+import Ninjas from "./Ninjas"
+import AddNinja from "./AddNinja"
 
 class App extends Component {
   state = {
@@ -9,26 +9,35 @@ class App extends Component {
       { name: "Yoshi", age: 20, belt: "Green", id: 2 },
       { name: "Claire", age: 30, belt: "Pink", id: 3 }
     ]
-  };
+  }
 
   addNinja = ninja => {
-    ninja.id = Math.random();
+    ninja.id = Math.random()
     this.setState(prevState => {
       return {
         ninjas: [...prevState.ninjas, ninja]
-      };
-    });
-  };
+      }
+    })
+  }
 
   deleteNinja = id => {
     this.setState(prevState => {
       return {
         ninjas: prevState.ninjas.filter(ninja => {
-          return ninja.id !== id;
+          return ninja.id !== id
         })
-      };
-    });
-  };
+      }
+    })
+  }
+
+  componentDidMount() {
+    console.log("component mounted")
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("component updated")
+    console.log(prevProps, prevState)
+  }
 
   render() {
     return (
@@ -38,8 +47,8 @@ class App extends Component {
         <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
         <AddNinja addNinja={this.addNinja} />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

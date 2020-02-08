@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Ninjas = ({ ninjas, deleteNinja }) => {
   const ninjaList = ninjas.map(ninja => {
@@ -9,16 +9,16 @@ const Ninjas = ({ ninjas, deleteNinja }) => {
         <div>Belt: {ninja.belt}</div>
         <button
           onClick={() => {
-            deleteNinja(ninja.id);
+            deleteNinja(ninja.id)
           }}
         >
           Delete Ninja
         </button>
       </div>
-    ) : null;
-  });
+    ) : null
+  })
 
-  return <div className="ninja-list">{ninjaList}</div>;
-};
+  return <div className="ninja-list">{ninjaList}</div>
+}
 
-export default Ninjas;
+export default Ninjas
